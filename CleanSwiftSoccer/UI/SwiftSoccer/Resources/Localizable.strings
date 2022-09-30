@@ -1,0 +1,24 @@
+
+/**
+ * Localization.
+*/
+
+"dash" = "-";
+"commonOk" = "Ok";
+"app_title" = "Swift Soccer";
+"commonError" = "Erreur";
+"common_loading" = "Chargement en cours";
+"errorNoInternet" = "Pas d'internet";
+"errorNoInternetDescription" = "Verifiez votre connexion internet pour accéder à l'application SwiftSoccer";
+"home_ranking" = "Classement";
+"home_scorers" = "Buteurs";
+"home_live_results" = "Résultats";
+"season_ligue_1" = "Ligue 1";
+"season_ligue_2" = "Ligue 2";
+"standing_clubs" = "Classements";
+"standing_rank" = "Rank";
+"standing_points" = "Pts";
+"standing_goal_diff" = "db";
+"scorers_name" = "Nom";
+"scorers_goals_scored" = "B";
+"scorers_matches_played" = "MJ";
