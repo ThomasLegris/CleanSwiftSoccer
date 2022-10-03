@@ -10,7 +10,5 @@ import Domain
 import SwiftUI
 
 public final class HomeContentInteractor {
-    @State public var selectedLeague: SoccerLeague = .ligue1
-
     public init() { }
 }

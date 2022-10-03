@@ -11,17 +11,18 @@ import UseCase
 /// Home screen related viewmodel
 public class HomeInteractor: BaseInteractor {
     // MARK: - Private Properties
-    var statusUseCase: AccountStatusUseCase
-    // TODO: let syncUseCase: SyncTEamsx<UseCase
+    private let statusUseCase: AccountStatusUseCase
+    private let syncUseCase: SyncTeamsUseCase
 
     // MARK: - Init
-    public init(statusUseCase: AccountStatusUseCase) {
+    public init(statusUseCase: AccountStatusUseCase,
+                syncUseCase: SyncTeamsUseCase) {
         self.statusUseCase = statusUseCase
+        self.syncUseCase = syncUseCase
 
         super.init()
         self.getStatus()
         self.syncTeams()
-        syncTeams()
     }
 
     /// Get account status (remaining call).
@@ -41,11 +42,6 @@ public class HomeInteractor: BaseInteractor {
 
     /// Synchronize team with api and persist the list from server response.
     func syncTeams() {
-//        Task(priority: .medium) {
-//            let teamsResponse = try await apiManager.teamsRequest()
-//            DispatchQueue.main.async {
-//                PersistanceManager.shared.syncTeams(teams: teamsResponse)
-//            }
-//        }
+        self.syncUseCase.execute()
     }
 }

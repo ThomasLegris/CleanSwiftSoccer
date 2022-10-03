@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02091AFD28E6D79700E2B5EE /* GetTeamsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091AFC28E6D79700E2B5EE /* GetTeamsUseCaseImpl.swift */; };
-		02091B0028E6D7AB00E2B5EE /* GetTeamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091AFF28E6D7AB00E2B5EE /* GetTeamsUseCase.swift */; };
+		02091AFD28E6D79700E2B5EE /* SyncTeamsUseCaseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091AFC28E6D79700E2B5EE /* SyncTeamsUseCaseImpl.swift */; };
+		02091B0028E6D7AB00E2B5EE /* SyncTeamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091AFF28E6D7AB00E2B5EE /* SyncTeamsUseCase.swift */; };
 		0288B81828E5D04B00787300 /* UseCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 0288B81728E5D04B00787300 /* UseCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B10C7128E5DA5E009784FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B10C7028E5DA5E009784FE /* Domain.framework */; };
 		02B10C7228E5DA5E009784FE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02B10C7028E5DA5E009784FE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,8 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02091AFC28E6D79700E2B5EE /* GetTeamsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeamsUseCaseImpl.swift; sourceTree = "<group>"; };
-		02091AFF28E6D7AB00E2B5EE /* GetTeamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTeamsUseCase.swift; sourceTree = "<group>"; };
+		02091AFC28E6D79700E2B5EE /* SyncTeamsUseCaseImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTeamsUseCaseImpl.swift; sourceTree = "<group>"; };
+		02091AFF28E6D7AB00E2B5EE /* SyncTeamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTeamsUseCase.swift; sourceTree = "<group>"; };
 		0288B81428E5D04B00787300 /* UseCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UseCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0288B81728E5D04B00787300 /* UseCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseCase.h; sourceTree = "<group>"; };
 		02B10C7028E5DA5E009784FE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				02B6DB7E28E5DB2C00248AC0 /* AccountStatusUseCase.swift */,
-				02091AFF28E6D7AB00E2B5EE /* GetTeamsUseCase.swift */,
+				02091AFF28E6D7AB00E2B5EE /* SyncTeamsUseCase.swift */,
 				02EB575628E6F45C005FF98E /* TeamsStandingUseCase.swift */,
 				02EB576A28E718A5005FF98E /* ScorersUseCase.swift */,
 			);
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				02B6DB8028E5DBA100248AC0 /* AccountStatusUseCaseImpl.swift */,
-				02091AFC28E6D79700E2B5EE /* GetTeamsUseCaseImpl.swift */,
+				02091AFC28E6D79700E2B5EE /* SyncTeamsUseCaseImpl.swift */,
 				02EB575828E6F471005FF98E /* TeamsStandingUseCaseImpl.swift */,
 				02EB576C28E718AE005FF98E /* ScorersUseCaseImpl.swift */,
 			);
@@ -198,8 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02091AFD28E6D79700E2B5EE /* GetTeamsUseCaseImpl.swift in Sources */,
-				02091B0028E6D7AB00E2B5EE /* GetTeamsUseCase.swift in Sources */,
+				02091AFD28E6D79700E2B5EE /* SyncTeamsUseCaseImpl.swift in Sources */,
+				02091B0028E6D7AB00E2B5EE /* SyncTeamsUseCase.swift in Sources */,
 				02EB576B28E718A5005FF98E /* ScorersUseCase.swift in Sources */,
 				02B6DB7F28E5DB2C00248AC0 /* AccountStatusUseCase.swift in Sources */,
 				02B6DB8128E5DBA100248AC0 /* AccountStatusUseCaseImpl.swift in Sources */,

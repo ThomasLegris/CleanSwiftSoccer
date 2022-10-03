@@ -9,19 +9,18 @@ import Foundation
 import Domain
 
 public class SyncTeamsRepositoryImpl: SyncTeamsRepository {
-    var apiManager: APIManager
-    var persistanceManager: PersistanceManager
+    private var apiManager: APIManager
 
-    public init(apiManager: APIManager, persistanceManager: PersistanceManager) {
+    public init(apiManager: APIManager) {
         self.apiManager = apiManager
-        self.persistanceManager = persistanceManager
     }
 
-    public func getTeams() async throws -> String {
-        return ""
-    }
+    public func syncTeam() {
+        Task(priority: .medium) {
+            let teams = try await apiManager.teamsRequest()
 
-    public func persistTeams() {
-        //
+               // PersistanceManager.shared.syncTeams(teams: teams)
+            
+        }
     }
 }

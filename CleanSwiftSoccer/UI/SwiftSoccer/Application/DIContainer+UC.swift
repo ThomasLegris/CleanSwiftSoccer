@@ -27,5 +27,10 @@ extension DIContainer {
         let useCase = ScorersUseCaseImpl(repository: self.scorersRepository)
         return useCase
     }
+
+    var syncTeamsUseCase: SyncTeamsUseCase {
+        let useCase = SyncTeamsUseCaseImpl(repository: self.syncTeamsRepository)
+        return useCase
+    }
 }
 

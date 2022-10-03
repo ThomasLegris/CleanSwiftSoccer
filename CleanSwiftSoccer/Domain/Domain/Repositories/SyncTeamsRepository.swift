@@ -8,6 +8,5 @@
 import Foundation
 
 public protocol SyncTeamsRepository {
-    func getTeams() async throws -> String
-    func persistTeams()
+    func syncTeam()
 }

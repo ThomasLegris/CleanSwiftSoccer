@@ -14,7 +14,8 @@ import Presentation
 // MARK: - Interactors dependency injection
 extension DIContainer {
     var homeInteractor: HomeInteractor {
-        return HomeInteractor(statusUseCase: accountStatusUseCase)
+        return HomeInteractor(statusUseCase: accountStatusUseCase,
+                              syncUseCase: self.syncTeamsUseCase)
     }
 
     var homeContentInteractor: HomeContentInteractor {

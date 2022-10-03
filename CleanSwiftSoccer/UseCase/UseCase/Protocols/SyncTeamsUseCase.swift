@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol GetTeamsUseCase {
-    func execute(completion: @escaping (String) -> Void)
+public protocol SyncTeamsUseCase {
+    func execute()
 }

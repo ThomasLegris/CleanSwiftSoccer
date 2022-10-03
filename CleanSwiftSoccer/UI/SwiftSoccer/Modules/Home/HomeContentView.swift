@@ -13,6 +13,7 @@ struct HomeContentView: View {
     // MARK: - Private Properties
     private var selectedPage: HomePageType
     private var interactor: HomeContentInteractor
+    @State public var selectedLeague: SoccerLeague = .ligue1
 
     init(selectedPage: HomePageType,
          interactor: HomeContentInteractor) {
@@ -23,7 +24,7 @@ struct HomeContentView: View {
     // MARK: - UI
     var body: some View {
         VStack(alignment: .center, spacing: 8.0) {
-            Picker("", selection: interactor.$selectedLeague) {
+            Picker("", selection: $selectedLeague) {
                 ForEach(SoccerLeague.allCases, id: \.self) {
                     Text($0.name)
                         .foregroundColor(.white)
@@ -37,9 +38,9 @@ struct HomeContentView: View {
 
             switch selectedPage {
             case .standing:
-                HomeStandingView(interactor: DIContainer.shared.homeStandingInteractor(selectedLeague: interactor.selectedLeague))
+                HomeStandingView(interactor: DIContainer.shared.homeStandingInteractor(selectedLeague: selectedLeague))
             case .scorers:
-                HomeScorersView(interactor: DIContainer.shared.homeScorersInteractor(selectedLeague: interactor.selectedLeague))
+                HomeScorersView(interactor: DIContainer.shared.homeScorersInteractor(selectedLeague: selectedLeague))
             }
             Spacer()
         }
