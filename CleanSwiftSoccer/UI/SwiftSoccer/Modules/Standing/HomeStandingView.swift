@@ -13,17 +13,13 @@ import Domain
 /// View to display the current season standing.
 struct HomeStandingView: View {
     // MARK: - Internal Properties
-    @ObservedObject var standingInteractor: HomeStandingInteractor
-    
-    init(interactor: HomeStandingInteractor) {
-        self.standingInteractor = interactor // @StateObject
-    }
+    @ObservedObject var interactor: HomeStandingInteractor
 
     // MARK: - UI
     var body: some View {
         List {
             Section {
-                ForEach(standingInteractor.rankedTeams, id: \.position) { team in
+                ForEach(interactor.rankedTeams, id: \.position) { team in
                     StandingListRow(model: team)
                         .background(.clear)
                 }

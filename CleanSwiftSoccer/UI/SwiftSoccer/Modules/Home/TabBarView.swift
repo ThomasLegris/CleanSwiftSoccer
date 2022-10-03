@@ -8,9 +8,12 @@
 import SwiftUI
 import Presentation
 
+/// Tab bar view displayed on the home page bottom.
 struct TabBarView: View {
+    // MARK: - Internal Properties
     @Binding var selectedPage: HomePageType
-    
+
+    // MARK: - UI
     var body: some View {
         HStack(alignment: .center) {
             ForEach(HomePageType.allCases,
@@ -23,10 +26,3 @@ struct TabBarView: View {
         .background(Color("red50"))
     }
 }
-
-//
-//struct TabBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TabBarView()
-//    }
-//}

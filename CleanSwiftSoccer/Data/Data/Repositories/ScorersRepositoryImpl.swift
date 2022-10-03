@@ -8,6 +8,7 @@
 import Foundation
 import Domain
 
+/// Repository implementation of top scorers regarding a league.
 public final class ScorersRepositoryImpl: ScorersRepository {
     // MARK: - Private Properties
     private var apiManager: APIManager

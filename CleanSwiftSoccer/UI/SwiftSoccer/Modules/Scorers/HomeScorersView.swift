@@ -15,10 +15,6 @@ struct HomeScorersView: View {
     // MARK: - Internal Properties
     @ObservedObject var interactor: HomeScorersInteractor
     
-    init(interactor: HomeScorersInteractor) {
-        self.interactor = interactor
-    }
-    
     // MARK: - UI
     var body: some View {
         List {

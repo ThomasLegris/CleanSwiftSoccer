@@ -9,9 +9,11 @@ import SwiftUI
 import SwiftyUserDefaults
 
 @main
+/// Main entry of the clean swift soccer app UI.
 struct SwiftSoccerApp: App {
     @Environment(\.scenePhase) var scenePhase
 
+    // MARK: - UI
     var body: some Scene {
         WindowGroup {
             ContentView()

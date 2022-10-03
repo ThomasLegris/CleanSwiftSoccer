@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02091B0428E6D95300E2B5EE /* SyncTeamsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091B0328E6D95300E2B5EE /* SyncTeamsRepositoryImpl.swift */; };
-		02091B0F28E6DAE000E2B5EE /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091B0E28E6DAE000E2B5EE /* PersistanceManager.swift */; };
+		02091B0F28E6DAE000E2B5EE /* PersistanceManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091B0E28E6DAE000E2B5EE /* PersistanceManagerImpl.swift */; };
 		02091B1228E6DB4900E2B5EE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 02091B1128E6DB4900E2B5EE /* Realm */; };
 		02091B1428E6DB4900E2B5EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02091B1328E6DB4900E2B5EE /* RealmSwift */; };
 		02091B1628E6DB6200E2B5EE /* RealmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02091B1528E6DB6200E2B5EE /* RealmModels.swift */; };
@@ -22,6 +22,7 @@
 		021AF99328E5991B00064FAA /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AF99228E5991B00064FAA /* DataTests.swift */; };
 		021AF99428E5991B00064FAA /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 021AF98628E5991B00064FAA /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		021F41F228E5EBAB00243A56 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 021F41F128E5EBAB00243A56 /* Alamofire */; };
+		0245338628EB24E6001C5DA3 /* PersistanceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0245338528EB24E6001C5DA3 /* PersistanceManagerProtocol.swift */; };
 		02B10C8028E5DA86009784FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B10C7F28E5DA86009784FE /* Domain.framework */; };
 		02B10C8128E5DA86009784FE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02B10C7F28E5DA86009784FE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02B6DB8C28E5DDF800248AC0 /* APIManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B6DB8B28E5DDF800248AC0 /* APIManagerImpl.swift */; };
@@ -58,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		02091B0328E6D95300E2B5EE /* SyncTeamsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTeamsRepositoryImpl.swift; sourceTree = "<group>"; };
-		02091B0E28E6DAE000E2B5EE /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		02091B0E28E6DAE000E2B5EE /* PersistanceManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManagerImpl.swift; sourceTree = "<group>"; };
 		02091B1528E6DB6200E2B5EE /* RealmModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModels.swift; sourceTree = "<group>"; };
 		02091B1828E6DBBB00E2B5EE /* TeamsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsParser.swift; sourceTree = "<group>"; };
 		02091B1A28E6DF1C00E2B5EE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		021AF98728E5991B00064FAA /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
 		021AF98D28E5991B00064FAA /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		021AF99228E5991B00064FAA /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		0245338528EB24E6001C5DA3 /* PersistanceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManagerProtocol.swift; sourceTree = "<group>"; };
 		02B10C7F28E5DA86009784FE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B6DB8B28E5DDF800248AC0 /* APIManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerImpl.swift; sourceTree = "<group>"; };
 		02B6DB8E28E5DE3000248AC0 /* AccountStatusRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatusRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -114,9 +116,9 @@
 		02091B0C28E6DAC800E2B5EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				02091B1728E6DBA400E2B5EE /* Parsers */,
 				02B6DB8B28E5DDF800248AC0 /* APIManagerImpl.swift */,
 				02091B1C28E6DF5500E2B5EE /* APIManagerProtocol.swift */,
+				02091B1728E6DBA400E2B5EE /* Parsers */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -124,7 +126,8 @@
 		02091B0D28E6DAD200E2B5EE /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				02091B0E28E6DAE000E2B5EE /* PersistanceManager.swift */,
+				02091B0E28E6DAE000E2B5EE /* PersistanceManagerImpl.swift */,
+				0245338528EB24E6001C5DA3 /* PersistanceManagerProtocol.swift */,
 				02091B1528E6DB6200E2B5EE /* RealmModels.swift */,
 			);
 			path = Persistance;
@@ -329,6 +332,7 @@
 			files = (
 				02091B1F28E6DFDF00E2B5EE /* StandingParser.swift in Sources */,
 				02091B2128E6DFEE00E2B5EE /* ScorersParser.swift in Sources */,
+				0245338628EB24E6001C5DA3 /* PersistanceManagerProtocol.swift in Sources */,
 				02EB575D28E6F5C1005FF98E /* TeamsStandingRepositoryImpl.swift in Sources */,
 				02B6DB8C28E5DDF800248AC0 /* APIManagerImpl.swift in Sources */,
 				02091B1628E6DB6200E2B5EE /* RealmModels.swift in Sources */,
@@ -341,7 +345,7 @@
 				02B6DB9228E5DF4D00248AC0 /* SoccerAPI.swift in Sources */,
 				02091B0428E6D95300E2B5EE /* SyncTeamsRepositoryImpl.swift in Sources */,
 				02EB576128E71440005FF98E /* ScorersRepositoryImpl.swift in Sources */,
-				02091B0F28E6DAE000E2B5EE /* PersistanceManager.swift in Sources */,
+				02091B0F28E6DAE000E2B5EE /* PersistanceManagerImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Codable object for account status api call.
 struct StatusResponse: Codable {
     var remainingRequests: String
 

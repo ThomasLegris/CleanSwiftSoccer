@@ -9,11 +9,12 @@ import SwiftUI
 
 /// Common loader.
 struct LoadingView: View {
+    // MARK: - Internal Properties
     var shouldShowLoader: Bool
     var title: String = "Loading"
 
     // MARK: - UI
-    // TODO: Implement an progress view and display it when api call async task.
+    // TODO: Implement a progress view and display it when api call async task.
     var body: some View {
         if shouldShowLoader {
             ProgressView(self.title)

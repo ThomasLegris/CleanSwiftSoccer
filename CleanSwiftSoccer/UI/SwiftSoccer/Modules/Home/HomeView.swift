@@ -33,6 +33,7 @@ struct HomeView: View {
     @ObservedObject private var interactor: HomeInteractor
     @State var selectedPage: HomePageType = .standing
 
+    // MARK: - Init
     init(interactor: HomeInteractor) {
         self.interactor = interactor
     }

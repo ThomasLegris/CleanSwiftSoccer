@@ -10,7 +10,7 @@ import RealmSwift
 
 // TODO: Protocol
 /// Manager to persist data in manager.
-public final class PersistanceManager {
+public final class PersistanceManagerImpl {
     // MARK: - Private Properties
     private var dataBase: Realm?
     private var teams: Results<TeamsObject>? {
@@ -28,11 +28,7 @@ public final class PersistanceManager {
 }
 
 // MARK: - Internal Funcs
-extension PersistanceManager {
-    /// Synchronize database with all Teams.
-    ///
-    /// - Parameters:
-    ///    - teams: teams from api call
+extension PersistanceManagerImpl: PersistanceManager {
     public func syncTeams(teams: TeamsResponse) {
         var teamsObjects: [TeamObject] = teams.data.map {
             let team = TeamObject()
@@ -56,20 +52,12 @@ extension PersistanceManager {
         }
     }
 
-    /// Returns team name.
-    ///
-    /// - Parameters:
-    ///     - teamId: id of the team stored
     public func teamName(by teamId: Int) -> String {
         guard let selectedTeam = self.getTeam(with: teamId) else { return "" }
 
         return selectedTeam.name
     }
 
-    /// Returns team icon.
-    ///
-    /// - Parameters:
-    ///     - teamId: id of the team stored
     public func teamIcon(by teamId: Int) -> String {
         guard let selectedTeam = self.getTeam(with: teamId) else { return "" }
 
@@ -78,7 +66,7 @@ extension PersistanceManager {
 }
 
 // MARK: - Private Funcs
-private extension PersistanceManager {
+private extension PersistanceManagerImpl {
     func getTeam(with teamId: Int) -> TeamObject? {
         guard let selectedTeam = teams?.first?.teams.first(where: { $0.identifier == teamId }) else { return nil }
 

@@ -8,13 +8,15 @@
 import SwiftUI
 import Presentation
 import Domain
+
 /// The main home view which display the content.
 struct HomeContentView: View {
     // MARK: - Private Properties
-    private var selectedPage: HomePageType
-    private var interactor: HomeContentInteractor
-    @State public var selectedLeague: SoccerLeague = .ligue1
+    private let selectedPage: HomePageType
+    private let interactor: HomeContentInteractor
+    @State private var selectedLeague: SoccerLeague = .ligue1
 
+    // MARK: - Init
     init(selectedPage: HomePageType,
          interactor: HomeContentInteractor) {
         self.interactor = interactor
@@ -51,6 +53,7 @@ struct HomeContentView: View {
 // MARK: - Preview
 struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeContentView(selectedPage: .standing, interactor: DIContainer.shared.homeContentInteractor)
+        HomeContentView(selectedPage: .standing,
+                        interactor: DIContainer.shared.homeContentInteractor)
     }
 }

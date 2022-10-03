@@ -8,9 +8,13 @@
 import Foundation
 import Domain
 
+/// Repository implementation of teams standing regarding a league.
 public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
+    // MARK: - Private properties
     private var apiManager: APIManager
     private var persistanceManager: PersistanceManager
+
+    // MARK: - Init
 
     public init(apiManager: APIManager,
                 persistanceManager: PersistanceManager) {
@@ -18,6 +22,7 @@ public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
         self.persistanceManager = persistanceManager
     }
 
+    // MARK: - TeamsStandingRepository
     public func teamsStanding(league: SoccerLeague, completion: @escaping ([HomeStandingModel]) -> Void) {
         apiManager.standingRequest(league: league) { response, error in
             guard let res = response, error == nil else {
@@ -47,7 +52,6 @@ public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
                                              resultPosition: position ?? .same)
                 }
             completion(standing)
-
         }
     }
 }
