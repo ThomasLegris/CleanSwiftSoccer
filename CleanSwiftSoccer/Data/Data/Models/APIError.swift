@@ -8,7 +8,7 @@
 import Foundation
 
 /// Model for api error.
-enum APIError: Error {
+public enum APIError: Error {
     case badUrl
     case jsonParsingError
     case defaultRequestError

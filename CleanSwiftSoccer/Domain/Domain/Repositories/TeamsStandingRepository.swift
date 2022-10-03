@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol TeamsStandingRepository {
-    func teamsStanding(league: SoccerLeague) async throws -> [HomeStandingModel]
+    func teamsStanding(league: SoccerLeague,  completion: @escaping ([HomeStandingModel]) -> Void)
 }

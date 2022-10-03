@@ -18,12 +18,14 @@ public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
         self.persistanceManager = persistanceManager
     }
 
-    public func teamsStanding(league: SoccerLeague) async throws -> [HomeStandingModel] {
-        do {
-            let standings = try await apiManager.standingRequest(league: league)
-            
+    public func teamsStanding(league: SoccerLeague, completion: @escaping ([HomeStandingModel]) -> Void) {
+        apiManager.standingRequest(league: league) { response, error in
+            guard let res = response, error == nil else {
+                completion([])
+                return
+            }
             // map response in a standing model list.
-            let standing: [HomeStandingModel] = standings
+            let standing: [HomeStandingModel] = res
                 .data
                 .standings
                 .map {
@@ -41,17 +43,11 @@ public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
                                              points: String($0.points),
                                              teamIconName: self.persistanceManager.teamIcon(by: $0.teamId),
                                              goalsInOut: "\($0.overall.goalsScored):\($0.overall.goalsAgainst)",
-                                             backgroundColorName: nil, // FIXME: Bizarre
-                                             positionBackgroundColorName: position?.rawValue,
-                                             positionTextColorName: position?.rawValue) // TODO: just position à passer, pas besoin de background ou title
+                                             backgroundColorName: nil,
+                                             resultPosition: position ?? .same)
                 }
-
-            return standing
-        } catch let error {
-            print("test error: \(error)")
-            return []
+            completion(standing)
 
         }
     }
-
 }

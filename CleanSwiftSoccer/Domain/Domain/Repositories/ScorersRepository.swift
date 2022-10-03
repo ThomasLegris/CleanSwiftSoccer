@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol ScorersRepository {
-    func topScorers(league: SoccerLeague) async throws -> [HomeScorerModel]
+    func topScorers(league: SoccerLeague, completion: @escaping ([HomeScorerModel]) -> Void)
 }

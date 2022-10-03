@@ -16,9 +16,8 @@ public class AccountStatusUseCaseImpl: AccountStatusUseCase {
     }
 
     public func execute(completion: @escaping (String) -> Void) {
-        Task(priority: .medium) {
-            let status = try await repository.statusRequest()
-            completion(status)
+        repository.statusRequest() { remainingCall in
+            completion(remainingCall)
         }
     }
 }

@@ -16,8 +16,7 @@ public struct HomeStandingModel {
     public var teamIconName: String
     public var goalsInOut: String
     public var backgroundColorName: String?
-    public var positionBackgroundColorName: String?
-    public var positionTextColorName: String?
+    public var resultPosition: HomeStandingModel.ResultPosition
 
     public init(teamId: Int,
                 teamName: String,
@@ -26,8 +25,7 @@ public struct HomeStandingModel {
                 teamIconName: String,
                 goalsInOut: String,
                 backgroundColorName: String? = nil,
-                positionBackgroundColorName: String? = nil,
-                positionTextColorName: String? = nil) {
+                resultPosition: HomeStandingModel.ResultPosition) {
         self.teamId = teamId
         self.teamName = teamName
         self.position = position
@@ -35,8 +33,7 @@ public struct HomeStandingModel {
         self.teamIconName = teamIconName
         self.goalsInOut = goalsInOut
         self.backgroundColorName = backgroundColorName
-        self.positionBackgroundColorName = positionBackgroundColorName
-        self.positionTextColorName = positionTextColorName
+        self.resultPosition = resultPosition
     }
 
     public enum ResultPosition: String {
@@ -49,6 +46,6 @@ public struct HomeStandingModel {
         case relagationPlayoff = "Relegation Playoff"
         // case for 2nd league level.
         case promotion = "Promotion"
-        case promotionPlayoff = "Promotion Playoff"
+        case promotionPlayoffs = "Promotion Playoffs"
     }
 }

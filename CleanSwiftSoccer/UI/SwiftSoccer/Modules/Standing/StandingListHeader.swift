@@ -19,8 +19,7 @@ struct StandingListHeader: View {
                                                  teamIconName: "",
                                                  goalsInOut: L10n.standingGoalDiff,
                                                  backgroundColorName: "white80",
-                                                 positionBackgroundColorName: nil,
-                                                 positionTextColorName: "gray80"))
+                                                 resultPosition: .same))
     }
 }
 

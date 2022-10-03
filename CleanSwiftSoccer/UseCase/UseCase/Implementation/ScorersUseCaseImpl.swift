@@ -17,9 +17,8 @@ public class ScorersUseCaseImpl: ScorersUseCase {
 
     public func execute(league: SoccerLeague,
                         completion: @escaping ([HomeScorerModel]) -> Void) {
-        Task(priority: .medium) {
-            let topScorers = try await self.repository.topScorers(league: league)
-            completion(topScorers)
+        self.repository.topScorers(league: league) { scorerModels in
+            completion(scorerModels)
         }
     }
 }

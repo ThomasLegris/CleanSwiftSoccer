@@ -10,19 +10,18 @@ import Presentation
 
 struct HomeTabBar: View {
     @Binding var selectedPage: HomePageType
-    
+
     var body: some View {
         ZStack(alignment: .top) {
             TabView(selection: $selectedPage) {
                 HomeContentView(selectedPage: selectedPage,
                                 interactor: DIContainer.shared.homeContentInteractor)
-                    .padding(.vertical, CommonConstant.padding)
-                    .padding(.horizontal, 16.0)
+                .padding(.top, CommonConstant.padding)
             }
             .background(.white)
             .tabViewStyle(.page(indexDisplayMode: .never))
             .edgesIgnoringSafeArea(.all)
-            
+
             TabBarView(selectedPage: self.$selectedPage)
         }
     }
@@ -40,7 +39,7 @@ struct HomeView: View {
 
     // MARK: - UI
     var body: some View {
-            HomeTabBar(selectedPage: $selectedPage)
+        HomeTabBar(selectedPage: $selectedPage)
     }
 }
 

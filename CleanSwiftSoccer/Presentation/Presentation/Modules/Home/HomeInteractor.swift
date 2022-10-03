@@ -30,12 +30,7 @@ public class HomeInteractor: BaseInteractor {
     func getStatus() {
         Task(priority: .medium) {
             statusUseCase.execute { status in
-                print("test status = \(status)")
-            }
-            DispatchQueue.main.async {
-
-                // Also use Defaults.appLaunchCounter ?
-                // self.status = "Remaining call = \(statusResponse)"
+                // TODO: display it in settings.
             }
         }
     }

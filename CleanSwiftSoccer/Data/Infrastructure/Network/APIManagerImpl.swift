@@ -37,63 +37,94 @@ private extension APIManagerImpl {
 
 // MARK: - SoccerAPIManagerProtocol
 extension APIManagerImpl: APIManager {
-    public func topScorersRequest(league: SoccerLeague) async throws -> ScorersCodable {
-        let params: [String: Any] = [Constants.keyParam: self.apiKey,
-                                        Constants.seasonIdParam: league.seasonId]
-        let request = try await self.request(url: SoccerAPI.topscorers.url, params: params)
-
-        do {
-            let decoder = JSONDecoder()
-            let jsonResonse = try decoder.decode(ScorersCodable.self, from: request)
-            return jsonResonse
-        } catch let decodeError {
-            print("error at top scorers request \(decodeError)")
-            throw decodeError
-        }
-    }
-
-    public func standingRequest(league: SoccerLeague) async throws -> StandingResponse {
-        let params: [String: Any] = [Constants.keyParam: self.apiKey,
-                                     Constants.seasonIdParam: league.seasonId]
-        let request = try await self.request(url: SoccerAPI.standings.url, params: params)
-
-        do {
-            let decoder = JSONDecoder()
-            let jsonResponse = try decoder.decode(StandingResponse.self, from: request)
-            return jsonResponse
-        } catch let decodeError {
-            print("error at standings response \(decodeError)")
-            throw decodeError
-        }
-    }
-
-    public func statusRequest() async throws -> String {
+    public func statusRequest(completion: @escaping (String?, APIError?) -> Void) {
         let params: [String: Any] = [Constants.keyParam: self.apiKey]
-        let request = try await self.request(url: SoccerAPI.status.url, params: params)
-
-        do {
-            let decoder = JSONDecoder()
-            let jsonResponse = try decoder.decode(StatusResponse.self, from: request)
-            return jsonResponse.remainingRequests
-        } catch let decodeError {
-            print(decodeError)
-            return "Status error: \(decodeError)"
+        self.request(url: SoccerAPI.status.url, params: params) { data, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, .jsonParsingError)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let jsonResponse = try decoder.decode(StatusResponse.self, from: data)
+                completion(jsonResponse.remainingRequests, nil)
+            } catch let decodeError {
+                print(decodeError)
+            }
         }
     }
 
-
-    public func teamsRequest() async throws -> TeamsResponse {
+    public func teamsRequest(completion: @escaping (TeamsResponse?, APIError?) -> Void) {
         let params: [String: Any] = [Constants.keyParam: self.apiKey,
                                      Constants.countryIdParam: 46] // France country id
-        let request = try await self.request(url: SoccerAPI.teams.url, params: params)
+        self.request(url: SoccerAPI.teams.url, params: params) { data, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, .jsonParsingError)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let jsonResonse = try decoder.decode(TeamsResponse.self, from: data)
+                completion(jsonResonse, nil)
+            } catch let decodeError {
+                completion(nil, .jsonParsingError)
+                print("error at teams request \(decodeError)")
+            }
+        }
+    }
 
-        do {
-            let decoder = JSONDecoder()
-            let jsonResonse = try decoder.decode(TeamsResponse.self, from: request)
-            return jsonResonse
-        } catch let decodeError {
-            print("error at teams request \(decodeError)")
-            throw decodeError
+    public func topScorersRequest(league: Domain.SoccerLeague, completion: @escaping (ScorersCodable?, APIError?) -> Void) {
+        let params: [String: Any] = [Constants.keyParam: self.apiKey,
+                                     Constants.seasonIdParam: league.seasonId]
+        self.request(url: SoccerAPI.topscorers.url, params: params) { data, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, .jsonParsingError)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let jsonResonse = try decoder.decode(ScorersCodable.self, from: data)
+                completion(jsonResonse, nil)
+            } catch let decodeError {
+                completion(nil, .jsonParsingError)
+                print("error at top scorers request \(decodeError)")
+
+            }
+        }
+    }
+
+    public func standingRequest(league: Domain.SoccerLeague, completion: @escaping (StandingResponse?, APIError?) -> Void) {
+        let params: [String: Any] = [Constants.keyParam: self.apiKey,
+                                     Constants.seasonIdParam: league.seasonId]
+        self.request(url: SoccerAPI.standings.url, params: params) { data, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            guard let data = data else {
+                completion(nil, .jsonParsingError)
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let jsonResponse = try decoder.decode(StandingResponse.self, from: data)
+                completion(jsonResponse, nil )
+            } catch let decodeError {
+                completion(nil, .jsonParsingError)
+                print("error at standings response \(decodeError)")
+            }
         }
     }
 }
@@ -108,31 +139,28 @@ private extension APIManagerImpl {
     ///     - httpMethod: http method for request
     func request(url: URL?,
                  params: [String: Any],
-                 httpMethod: HTTPMethod = .get) async throws -> Data {
-        try await withCheckedThrowingContinuation { continuation in
-            guard let url = url else {
-                // continuation.resume(throwing: APIError.badUrl)
+                 httpMethod: HTTPMethod = .get,
+                 completion:  @escaping (Data?, APIError?) -> Void) {
+        guard let url = url else {
+            completion(nil, .badUrl)
+            return
+        }
+
+        AF.request(url,
+                   method: httpMethod,
+                   parameters: params).validate().responseData { response in
+            if let data = response.data {
+                completion(data, nil)
                 return
             }
 
-            AF.request(url,
-                       method: httpMethod,
-                       parameters: params).validate().responseData { response in
-                if let data = response.data {
-
-                    continuation.resume(returning: data)
-                    return
-                }
-                if let err = response.error {
-
-                    continuation.resume(throwing: err)
-                    return
-                }
-
-                continuation.resume(throwing: APIError.defaultRequestError)
+            if response.error != nil {
+                print("test error response")
+                completion(nil, .defaultRequestError)
                 return
             }
+
+            return
         }
     }
-
 }

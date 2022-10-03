@@ -17,20 +17,6 @@ extension HomeStandingModel {
         }
         return Color(name)
     }
-    public var positionBackgroundColor: Color {
-        guard let name = self.positionBackgroundColorName else {
-            return .clear
-        }
-        return Color(name)
-
-    }
-    public var positionTextColor: Color {
-        guard let name = self.positionTextColorName else {
-            return .clear
-        }
-        return Color(name)
-
-    }
 }
 
 /// UI Helpers for `ResultPosition`
@@ -43,7 +29,7 @@ extension HomeStandingModel.ResultPosition {
         case .championsLeaguePlayoff:
             return Color("red40")
         case .europaLeague,
-                .promotionPlayoff:
+                .promotionPlayoffs:
             return Color("red30")
         case .europaConferenceLeague:
             return Color("red20")
@@ -56,7 +42,7 @@ extension HomeStandingModel.ResultPosition {
         }
     }
 
-    var titleColor: Color {
+    public var titleColor: Color {
         switch self {
         case .same:
             return Color("gray80")

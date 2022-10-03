@@ -15,14 +15,14 @@ public class AccountStatusRepositoryImpl: AccountStatusRepository {
     public init(apiManager: APIManager) {
         self.apiManager = apiManager
     }
-    
-    public func statusRequest() async throws -> String {
-        print("toto")
-        // Init an async task and perform api request.
-        Task(priority: .medium) {
-            let status = try await apiManager.statusRequest()
-            return status
+
+    public func statusRequest(completion: @escaping (String) -> Void) {
+        self.apiManager.statusRequest { response, error in
+            guard let res = response, error == nil else {
+                completion("0")
+                return
+            }
+            completion(res)
         }
-        return "toto"
     }
 }

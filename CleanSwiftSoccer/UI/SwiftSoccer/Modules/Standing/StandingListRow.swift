@@ -19,12 +19,12 @@ struct StandingListRow: View {
             HStack(spacing: 10.0) {
                 Text(model.position)
                     .font(.caption)
-                    .foregroundColor(model.positionTextColor)
+                    .foregroundColor(model.resultPosition.titleColor)
                     .frame(width: 40.0)
                     .background(
                         RoundedRectangle(cornerRadius: 2.0)
                             .frame(width: CommonConstant.padding, height: 48)
-                            .foregroundColor(model.positionBackgroundColor)
+                            .foregroundColor(model.resultPosition.color)
                     )
                 AsyncImage(url: URL(string: model.teamIconName)) { image in
                     image
@@ -65,6 +65,6 @@ struct RankingListRow_Previews: PreviewProvider {
                                                  points: "63",
                                                  teamIconName: "https://cdn.sportdataapi.com/images/soccer/teams/100/587.png",
                                                  goalsInOut: "50:23",
-                                                 positionTextColorName: "white"))
+                                                 resultPosition: .same))
     }
 }

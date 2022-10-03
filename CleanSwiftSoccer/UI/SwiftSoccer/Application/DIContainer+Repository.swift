@@ -17,14 +17,17 @@ extension DIContainer {
     }
 
     var standingRepository: TeamsStandingRepository {
-        return TeamsStandingRepositoryImpl(apiManager: APIManagerImpl())
+        return TeamsStandingRepositoryImpl(apiManager: APIManagerImpl(),
+                                           persistanceManager: PersistanceManager())
     }
 
     var scorersRepository: ScorersRepository {
-        return ScorersRepositoryImpl(apiManager: APIManagerImpl())
+        return ScorersRepositoryImpl(apiManager: APIManagerImpl(),
+                                     persistanceManager: PersistanceManager())
     }
 
     var syncTeamsRepository: SyncTeamsRepository {
-        return SyncTeamsRepositoryImpl(apiManager: APIManagerImpl())
+        return SyncTeamsRepositoryImpl(apiManager: APIManagerImpl(),
+                                       persistanceManager: PersistanceManager())
     }
 }

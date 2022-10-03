@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol AccountStatusRepository {
-    func statusRequest() async throws -> String
+    func statusRequest(completion: @escaping (String) -> Void)
 }

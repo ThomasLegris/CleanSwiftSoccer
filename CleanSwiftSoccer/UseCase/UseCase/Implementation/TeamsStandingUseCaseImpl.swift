@@ -16,9 +16,8 @@ public final class TeamsStandingUseCaseImpl: TeamsStandingUseCase {
     }
 
     public func execute(league: SoccerLeague, completion: @escaping ([HomeStandingModel]) -> Void) {
-        Task {
-            let standing = try await self.repository.teamsStanding(league: league)
-            completion(standing)
+        self.repository.teamsStanding(league: league) { standingModels in
+            completion(standingModels)
         }
     }
 }
