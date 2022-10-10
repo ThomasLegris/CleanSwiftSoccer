@@ -2,13 +2,8 @@
 Welcome to this repo. It's a SwiftUI app which gives info about French Soccer results. App is based on Clean architecture with a VIP pattern approach. It is using also DIP and several well known frameworks. Also organized in multi module.
 
 ## Features:
-- Standings for Ligue 1 et and Ligue 2
-- Favorite cities list to store towns registered by user
-- Map view to find weather with location (lat & long) 
-- Daily and weekly details for the town selected (available from each screen)
-- Offline mode. Without connection, user has still several weather data about last city searched and favorite cities registered
-- SDK's unit tests
-- SDK's docs (using https://app.diagrams.net)
+- Standings for Ligue 1 and Ligue 2
+- Top Scorers for these leagues
 
 ## Architecture:
 Multimodule app
