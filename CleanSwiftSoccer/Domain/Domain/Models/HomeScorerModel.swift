@@ -9,6 +9,7 @@ import Foundation
 
 /// Model for a selected scorer.
 public struct HomeScorerModel {
+    // MARK: - Public Properties
     public var teamId: Int
     public var teamName: String
     public var teamIconName: String
@@ -18,6 +19,7 @@ public struct HomeScorerModel {
     public var goalsScored: String
     public var matchesPlayed: String
 
+    // MARK: - Init
     public init(teamId: Int,
                 teamName: String,
                 teamIconName: String,

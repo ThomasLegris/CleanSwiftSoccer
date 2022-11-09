@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol which defines all business logic calls about top scorers rank.
 public protocol ScorersRepository {
     func topScorers(league: SoccerLeague, completion: @escaping ([HomeScorerModel]) -> Void)
 }

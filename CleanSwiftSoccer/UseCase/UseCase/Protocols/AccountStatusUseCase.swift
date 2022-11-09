@@ -9,6 +9,7 @@ import Foundation
 import Domain
 import Combine
 
+/// Usecase protocol to execute the account status request.
 public protocol AccountStatusUseCase {
     func execute(completion: @escaping (String) -> Void)
 }

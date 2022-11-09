@@ -7,12 +7,17 @@
 
 import Foundation
 
+/// Model which describes a soccer league and its property..
 public enum SoccerLeague: String, CaseIterable {
     /// League 1 season.
     case ligue1
     /// League 2 season.
     case ligue2
 
+}
+
+// MARK: - Public Properties
+extension SoccerLeague {
     /// Returns the id of the current season regarding league.
    public var seasonId: Int {
         switch self {

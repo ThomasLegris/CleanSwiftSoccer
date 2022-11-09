@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 // MARK: - Enums
+/// Defines the soccer webservice fields in order to perform all API calls.
 enum SoccerAPI {
     case status
     case standings
@@ -16,7 +17,7 @@ enum SoccerAPI {
     case teams
     case matches
 
-    /// Provides common constants.
+    /// Provides common API constants.
     private enum Constants {
         static let baseURL: String = "https://app.sportdataapi.com/api/v1/"
     }

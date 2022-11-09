@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Constants used in UI package.
 enum CommonConstant {
     static let padding: CGFloat = 32.0
 }

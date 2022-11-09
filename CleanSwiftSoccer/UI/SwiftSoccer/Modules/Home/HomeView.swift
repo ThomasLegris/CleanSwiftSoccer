@@ -8,25 +8,6 @@
 import SwiftUI
 import Presentation
 
-struct HomeTabBar: View {
-    @Binding var selectedPage: HomePageType
-
-    var body: some View {
-        ZStack(alignment: .top) {
-            TabView(selection: $selectedPage) {
-                HomeContentView(selectedPage: selectedPage,
-                                interactor: DIContainer.shared.homeContentInteractor)
-                .padding(.top, CommonConstant.padding)
-            }
-            .background(.white)
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .edgesIgnoringSafeArea(.all)
-
-            TabBarView(selectedPage: self.$selectedPage)
-        }
-    }
-}
-
 /// Home view which displays a page according to its index.
 struct HomeView: View {
     // MARK: - Private Properties
@@ -40,7 +21,18 @@ struct HomeView: View {
 
     // MARK: - UI
     var body: some View {
-        HomeTabBar(selectedPage: $selectedPage)
+        ZStack(alignment: .top) {
+            TabView(selection: $selectedPage) {
+                HomeContentView(selectedPage: selectedPage,
+                                interactor: DIContainer.shared.homeContentInteractor)
+                .padding(.top, CommonConstant.padding)
+            }
+            .background(.white)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .edgesIgnoringSafeArea(.all)
+
+            TabBarView(selectedPage: self.$selectedPage)
+        }
     }
 }
 

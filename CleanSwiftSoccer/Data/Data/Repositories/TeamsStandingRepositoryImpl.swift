@@ -15,21 +15,20 @@ public final class TeamsStandingRepositoryImpl: TeamsStandingRepository {
     private var persistanceManager: PersistanceManager
 
     // MARK: - Init
-
     public init(apiManager: APIManager,
                 persistanceManager: PersistanceManager) {
         self.apiManager = apiManager
         self.persistanceManager = persistanceManager
     }
 
-    // MARK: - TeamsStandingRepository
+    // MARK: - TeamsStandingRepository Impl
     public func teamsStanding(league: SoccerLeague, completion: @escaping ([HomeStandingModel]) -> Void) {
         apiManager.standingRequest(league: league) { response, error in
-            guard let res = response, error == nil else {
+            guard let res = response, error == nil else {
                 completion([])
                 return
             }
-            // map response in a standing model list.
+            // Map response in a standing model list.
             let standing: [HomeStandingModel] = res
                 .data
                 .standings

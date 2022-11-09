@@ -8,9 +8,10 @@
 import Foundation
 import Domain
 
-public extension SoccerLeague {
+/// Utility extension of `SoccerLeague`  to give property access for UI layer.
+extension SoccerLeague {
     /// Returns soccer league name.
-    var name: String {
+    public var name: String {
         switch self {
         case .ligue1:
             return L10n.seasonLigue1

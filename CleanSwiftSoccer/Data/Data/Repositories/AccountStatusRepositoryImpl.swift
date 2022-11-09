@@ -18,7 +18,7 @@ public class AccountStatusRepositoryImpl: AccountStatusRepository {
         self.apiManager = apiManager
     }
 
-    // MARK: - AccountStatusRepository
+    // MARK: - AccountStatusRepository Impl
     public func statusRequest(completion: @escaping (String) -> Void) {
         self.apiManager.statusRequest { response, error in
             guard let res = response, error == nil else {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Base view model.
+/// Base view model (interactor).
 public class BaseInteractor: ObservableObject {
     // MARK: - Internal Properties
     /// Common status property which will define the state of view.

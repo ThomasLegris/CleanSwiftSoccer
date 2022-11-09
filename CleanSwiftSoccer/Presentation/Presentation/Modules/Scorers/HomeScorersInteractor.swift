@@ -9,6 +9,7 @@ import Foundation
 import UseCase
 import Domain
 
+/// Interactor which handle business logic for top scorers feature.
 public final class HomeScorersInteractor: BaseInteractor {
     // MARK: - Public Properties
     @Published public var topScorers: [HomeScorerModel] = []
@@ -28,6 +29,7 @@ public final class HomeScorersInteractor: BaseInteractor {
     }
 }
 
+// MARK: - Private Funcs
 private extension HomeScorersInteractor {
     func initScorers() {
         useCase.execute(league: self.selectedLeague, completion: { scorers in

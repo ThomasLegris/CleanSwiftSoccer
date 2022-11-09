@@ -8,6 +8,7 @@
 import Foundation
 import Domain
 
+/// Usecase protocol to execute the top scorers rank request.
 public protocol ScorersUseCase {
     func execute(league: SoccerLeague, completion: @escaping ([HomeScorerModel]) -> Void)
 }

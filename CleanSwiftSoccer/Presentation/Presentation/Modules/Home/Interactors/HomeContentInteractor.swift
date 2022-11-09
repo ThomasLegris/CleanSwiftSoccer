@@ -9,6 +9,7 @@ import Foundation
 import Domain
 import SwiftUI
 
+// TODO: Will be filled with new features.
 public final class HomeContentInteractor {
     public init() { }
 }

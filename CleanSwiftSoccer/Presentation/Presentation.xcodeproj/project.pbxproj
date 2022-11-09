@@ -116,9 +116,9 @@
 		02B10C6B28E5DA1B009784FE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				02B10C6C28E5DA20009784FE /* Home */,
 				02EB576528E717B5005FF98E /* Scorers */,
 				02EB576428E717AD005FF98E /* Standing */,
-				02B10C6C28E5DA20009784FE /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -128,8 +128,6 @@
 			children = (
 				02EB575328E6F12C005FF98E /* Models */,
 				02EB575228E6F126005FF98E /* Interactors */,
-				02091AEC28E5F0DA00E2B5EE /* HomeInteractor.swift */,
-				02EB574B28E6EC54005FF98E /* HomeContentInteractor.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -154,6 +152,8 @@
 		02EB575228E6F126005FF98E /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				02091AEC28E5F0DA00E2B5EE /* HomeInteractor.swift */,
+				02EB574B28E6EC54005FF98E /* HomeContentInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";

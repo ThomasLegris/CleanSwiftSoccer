@@ -21,10 +21,10 @@ public final class ScorersRepositoryImpl: ScorersRepository {
         self.persistanceManager = persistanceManager
     }
 
-    // MARK: - Protocol Impl
+    // MARK: - ScorersRepository Impl
     public func topScorers(league: SoccerLeague, completion: @escaping ([HomeScorerModel]) -> Void) {
         apiManager.topScorersRequest(league: league) { [weak self] response, error in
-            guard let res = response, error == nil else {
+            guard let res = response, error == nil else {
                 completion([])
                 return
             }

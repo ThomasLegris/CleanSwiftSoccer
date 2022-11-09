@@ -14,18 +14,3 @@ public enum ViewStatus {
     case loading
     case error
 }
-
-// MARK: - Internal Properties
-extension ViewStatus {
-    /// Status title.
-    public var title: String {
-        switch self {
-        case .idle:
-            return ""
-        case .loading:
-            return L10n.commonLoading
-        case .error:
-            return L10n.commonError
-        }
-    }
-}

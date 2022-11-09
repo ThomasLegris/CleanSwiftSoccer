@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Usecase protocol to execute the teams synchronisation request.
 public protocol SyncTeamsUseCase {
     func execute()
 }

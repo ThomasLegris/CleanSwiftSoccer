@@ -11,13 +11,14 @@ import Domain
 
 /// View model in charge of business logic in standing view.
 public final class HomeStandingInteractor: BaseInteractor {
-    // MARK: - Internal Properties
+    // MARK: - Public Properties
     @Published public var rankedTeams: [HomeStandingModel] = []
 
     // MARK: - Private Properties
     private let useCase: TeamsStandingUseCase
     private let selectedLeague: SoccerLeague
 
+    // MARK: - Init
     public init(selectedLeague: SoccerLeague = .ligue1, useCase: TeamsStandingUseCase) {
         self.selectedLeague = selectedLeague
         self.useCase = useCase
@@ -30,7 +31,6 @@ public final class HomeStandingInteractor: BaseInteractor {
 // MARK: - Private Funcs
 private extension HomeStandingInteractor {
     func initDataSource() {
-
         useCase.execute(league: self.selectedLeague) { teamsStanding in
             DispatchQueue.main.async {
                 self.rankedTeams = teamsStanding

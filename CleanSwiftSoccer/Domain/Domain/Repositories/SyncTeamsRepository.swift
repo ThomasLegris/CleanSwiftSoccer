@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol which defines all business logic calls about teams synchronisation.
 public protocol SyncTeamsRepository {
     func syncTeam()
 }

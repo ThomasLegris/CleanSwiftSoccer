@@ -8,7 +8,7 @@
 import SwiftUI
 import Domain
 
-/// Header row for standing list.
+/// Header row for teams standing list.
 struct StandingListHeader: View {
     // MARK: - UI
     var body: some View {

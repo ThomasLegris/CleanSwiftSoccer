@@ -12,7 +12,10 @@ import Foundation
 public enum HomePageType: Int, CaseIterable {
     case standing
     case scorers
+}
 
+// MARK: - Public Properties
+extension HomePageType {
     /// Return title of selected home page.
     public var title: String {
         switch self {

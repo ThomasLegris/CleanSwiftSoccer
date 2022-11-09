@@ -15,7 +15,9 @@ struct TabBarItem: View {
     @Binding var selectedTab: HomePageType
     /// The current tab.
     var tab: HomePageType
-    @Namespace var namespace
+
+    // MARK: - Private Properties
+    @Namespace private var namespace
 
     // MARK: - UI
     var body: some View {

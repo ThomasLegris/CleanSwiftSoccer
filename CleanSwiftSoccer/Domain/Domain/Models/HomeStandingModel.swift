@@ -9,6 +9,7 @@ import Foundation
 
 /// Main model for standing feature.
 public struct HomeStandingModel {
+    // MARK: - Public Properties
     public var teamId: Int
     public var teamName: String
     public var position: String
@@ -18,6 +19,7 @@ public struct HomeStandingModel {
     public var backgroundColorName: String?
     public var resultPosition: HomeStandingModel.ResultPosition
 
+    // MARK: - Init
     public init(teamId: Int,
                 teamName: String,
                 position: String,
@@ -36,6 +38,7 @@ public struct HomeStandingModel {
         self.resultPosition = resultPosition
     }
 
+    // MARK: - Constants
     public enum ResultPosition: String {
         case championsLeague = "Champions League"
         case championsLeaguePlayoff = "Champions League Qualification"

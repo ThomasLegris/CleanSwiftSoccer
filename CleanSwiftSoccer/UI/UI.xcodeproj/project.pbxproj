@@ -266,10 +266,10 @@
 		E4D102D927E47495005133B1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0269723528DC66CD00C92DF1 /* TabBarItem.swift */,
-				0269723728DC66D800C92DF1 /* TabBarView.swift */,
 				E45C6EC927EB77DC00EC5317 /* HomeContentView.swift */,
 				E4D102D727E47491005133B1 /* HomeView.swift */,
+				0269723528DC66CD00C92DF1 /* TabBarItem.swift */,
+				0269723728DC66D800C92DF1 /* TabBarView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

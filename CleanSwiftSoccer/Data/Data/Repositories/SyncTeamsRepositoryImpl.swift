@@ -21,7 +21,7 @@ public class SyncTeamsRepositoryImpl: SyncTeamsRepository {
         self.persistanceManager = persistanceManager
     }
 
-    // MARK: - SyncTeamsRepository
+    // MARK: - SyncTeamsRepository Impl
     public func syncTeam() {
         apiManager.teamsRequest { [weak self] response, error in
             guard let res = response, error == nil else { return }

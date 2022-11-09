@@ -9,7 +9,7 @@ import SwiftUI
 import Presentation
 import Domain
 
-/// The main home view which display the content.
+/// The main view which display the content.
 struct HomeContentView: View {
     // MARK: - Private Properties
     private let selectedPage: HomePageType
